@@ -1,0 +1,31 @@
+<%= turbo_frame_tag(frame_tag_id) do %>
+  <% if can_edit? %>
+    <div class="fake-link editable" data-controller="editable-field"
+         data-editable-field-type="text"
+         data-editable-field-value=<%= @model.public_send(@attribute) %>>
+      <div class="read-field" data-action="click->editable-field#click" data-target="editable-field.readContainer">
+        <span><%= display_value %></span>
+        <i class="fas fa-edit ms-2 edit-icon"></i>
+      </div>
+      <div class="editable-container editable-inline" data-target="editable-field.writeContainer" style="display:none">
+        <%= form_for @model, url: '/home/inline_form_submission', data: { target: 'editable-field.form' }, html: { class: 'd-inline' } do |f| %>
+          <div class="form-group d-inline">
+            <div class="editable-input" style="position: relative;">
+              <%= f.text_field @attribute, data: { target: 'editable-field.input' }, class: 'form-control form-control-sm' %>
+            </div>
+            <div class="editable-buttons">
+              <button class="btn btn-outline-primary btn-sm btn-xs" type="submit" data-disable-with="<%= spinner %>">
+                <i class="fas fa-check fa-fw"></i>
+              </button>
+              <button class="btn btn-outline-secondary btn-sm btn-xs ms-1" data-action="click->editable-field#cancel" type="button">
+                <i class="fas fa-times fa-fw"></i>
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>>
+    <%= display_value %>
+  <% end %>
+<% end %>

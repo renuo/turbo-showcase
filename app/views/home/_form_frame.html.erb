@@ -1,0 +1,27 @@
+<%= turbo_frame_tag 'form-frame', class: 'flexible flex-column' do %>
+  <p>
+    The controller will elaborate this submission as TURBO_STREAM.
+    After submission, the controller will re-render the `form_frame` partial.
+    Check the controller implementation.
+    <strong><%= @user.first_name %> <%= @user.last_name %></strong>
+  </p>
+  <%= form_for @user, url: '/home/form_submission', remote: true do |f| %>
+    <div class="mb-3">
+      <%= f.text_field :first_name, placeholder: 'First name', class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= f.text_field :last_name, placeholder: 'Last name', class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= f.button 'Submit this form', class: 'btn btn-primary', data: { disable_with: spinner } %>
+      <div class="text-muted fs-6">
+        This button contains a nice spinner when submitted, right? This is a bit tricky as of today:
+        <ul>
+          <li>You should use a `button` and not an `input`</li>
+          <li>You need some custom javascript. See rails_ujs_turbo_polyfill.js file in the project</li>
+        </ul>
+
+      </div>
+    </div>
+  <% end %>
+<% end %>

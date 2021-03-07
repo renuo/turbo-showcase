@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby File.read(File.join(__dir__, '.ruby-version'))
+ruby File.read(File.join(__dir__, ".ruby-version"))
 
 gem "rails"
 gem "pg"
@@ -9,9 +9,9 @@ gem "puma"
 gem "sass-rails"
 gem "standardrb"
 gem "webpacker"
-
-gem "jbuilder"
+gem "view_component", require: "view_component/engine"
 gem "kaminari"
+gem "bootstrap4-kaminari-views"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "redis"

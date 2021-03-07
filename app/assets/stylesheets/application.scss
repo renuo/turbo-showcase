@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+$renuo-green: #27d79d;
+
+turbo-frame {
+  border: 3px dotted green;
+
+  &.flexible {
+    min-height: 100px;
+    display: flex;
+    padding: 1em;
+  }
+}
+
+.fixed-height {
+  height: 10em;
+}
+
+.renuo-green {
+  color: $renuo-green;
+}
+
+.footer {
+  background-color: #f6f6f6;
+}
+
+dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+dt {
+  vertical-align: middle;
+  font-weight: normal !important;
+  width: 30%;
+}
+
+dd {
+  vertical-align: middle;
+  font-weight: bold;
+  width: 70%;
+}
+
+.fake-link {
+  display: inline;
+  cursor: pointer;
+
+  .read-field {
+    transition: box-shadow 150ms ease-in 0ms;
+    border-radius: 2.01px;
+    padding: 2px 5px 2px 0;
+    display: inline;
+
+    span {
+      border-bottom: 1px dashed ;
+    }
+
+    .edit-icon {
+      transition: opacity 150ms ease-in 0ms;
+      opacity: 0;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 1px #ccc;
+
+      .edit-icon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.editable-input {
+  vertical-align: top;
+  display: inline-block;
+  width: auto;
+  white-space: normal;
+  zoom: 1;
+}
+
+.editable-buttons {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 7px;
+  zoom: 1;
+}
