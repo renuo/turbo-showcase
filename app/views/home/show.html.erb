@@ -1,0 +1,146 @@
+<h1> Hello, welcome to Turbo Showcase</h1>
+<p>
+  This is a Turbo kitchen sink. We provide some Open Sourced example of what you can do with Turbo.
+</p>
+<p>
+  We highlighted all the turbo-frames with a green dotted border.
+</p>
+<p>
+  You can inspect the source code of this page, and/or visit
+  <a href="https://github.com/renuo/turbo-showcase">https://github.com/renuo/turbo-showcase</a>
+  to see how we implemented stuff here.
+</p>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>This turbo-frame is called 'update-me'</h5>
+      </div>
+      <div class="card-body">
+        <%= turbo_frame_tag 'update-me', class: 'flex-column' do %>
+          Let's start with some basic turbo-frame navigation.
+
+          <a href="/home/replace_update_me" class="btn btn-primary m-3">
+            Replaces only the content of this turbo-frame
+          </a>
+          <a href="/home/replace_whole_page" class="btn btn-primary m-3" data-turbo-frame="_top">
+            Reload the whole page with attribute data-turbo-frame: '_top'
+          </a>
+          <a href="/home/replace_whole_page" class="btn btn-primary m-3" target="_top">
+            Reload the whole page also with attribute target: '_top'
+          </a>
+
+          <%= turbo_frame_tag 'target-top', target: '_top', class: 'm-3' do %>
+            <a href="/home/replace_whole_page" class="btn btn-primary m-3">
+              Reload the whole page when the nearest wrapping turbo-frame has target: '_top'
+            </a>
+          <% end %>
+
+          <a href="/home/replace_external_frame" class="btn btn-primary m-3" data-turbo-frame="external-frame">
+            Reload the external-frame content
+          </a>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>Special frame</h5>
+      </div>
+
+      <div class="card-body">
+        <%= turbo_frame_tag 'special-frame', data: { controller: 'url-updating-frame' }, class: 'flex-column' do %>
+          I am a special frame. When my content is replaced, also the URL of the page is updated.
+          This is not the default behaviour so, in order to do that, I need a stimulus controller attached.
+          This is particularly useful when paginating content.
+          <table class="table table-striped">
+            <% @elements.each do |el| %>
+              <tr>
+                <td><%= el %></td>
+              </tr>
+            <% end %>
+          </table>
+          <%= paginate @elements %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>This turbo-frame is called 'external-frame'</h5>
+      </div>
+
+      <div class="card-body">
+        <%= turbo_frame_tag 'external-frame', class: 'flex-column' do %>
+          Hi 👋. I am called external-frame. Just because my content gets replaced by some other frames.
+          Somewhere there's a button that is able to replace my content.
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>This turbo-frame is called 'form-frame'</h5>
+      </div>
+
+      <div class="card-body">
+        <%= turbo_frame_tag 'form-frame', class: 'flex-column' do %>
+          <% form_for 'user' do |f| %>
+            <div class="mb-3">
+              <%= f.text_field 'first_name', placeholder: 'First name', class: 'form-control' %>
+            </div>
+            <div class="mb-3">
+              <%= f.text_field 'last_name', placeholder: 'Last name', class: 'form-control' %>
+            </div>
+            <div class="mb-3">
+              <%= f.submit 'Submit this form', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>Slow frame</h5>
+      </div>
+
+      <div class="card-body">
+        <%= turbo_frame_tag 'slow-frame', src: '/home/slow_frame' do %>
+          Loading frame content asynchronously...
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>This turbo-frame is called 'stream-title'</h5>
+      </div>
+
+      <div class="card-body">
+        <%= turbo_stream_from 'stream-id' %>
+        <%= turbo_frame_tag 'stream-title', class: 'align-items-center justify-content-center' do %>
+          I have some content
+        <% end %>
+
+        <p>
+          The link below, will update the content above by using an ActionCable stream.
+        </p>
+        <p>
+          Check the implementation in the #refresh_stream_title action.
+        </p>
+        <p>
+          If you open multiple tabs, you will see that the content is replaced in all the tabs.
+        </p>
+        <p>
+          If the number is changing, it means that someone else is refreshing it right now.
+        </p>
+
+        <%= link_to 'Click me', '/home/refresh_stream_title', remote: true, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

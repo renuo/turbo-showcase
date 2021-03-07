@@ -1,0 +1,33 @@
+version: "v1.0"
+name: mtextur
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+auto_cancel:
+  running:
+    when: 'true'
+blocks:
+  - name: tests
+    execution_time_limit:
+      minutes: 10
+    task:
+      secrets:
+        - name: mtextur
+      env_vars:
+        - name: DATABASE_URL
+          value: 'postgresql://postgres@localhost/test?encoding=utf8'
+        - name: RAILS_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout --use-cache
+      jobs:
+        - name: tests
+          commands:
+            - echo "do nothing today"
+promotions:
+  - name: main
+    pipeline_file: main-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'main'"

@@ -1,0 +1,10 @@
+<%= turbo_frame_tag 'external-frame' do %>
+  I got replaced. I can reload the previous content by simply calling the root page.
+  <a href="/" class="btn btn-primary">Restore original content</a>
+
+  of course I can also replace the content of another frame!
+
+  <a href="/home/replace_form_frame" class="btn btn-primary" data-turbo-frame="form-frame">
+    Replace the content of the form-frame
+  </a>
+<% end %>

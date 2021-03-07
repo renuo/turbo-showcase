@@ -1,0 +1,22 @@
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: turbo-showcase-development
+
+test:
+  <<: *default
+  database: turbo-showcase-test
+
+production:
+  <<: *default
+  database: turbo-showcase-production
