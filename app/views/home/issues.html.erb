@@ -1,0 +1,21 @@
+<%= turbo_frame_tag 'form-frame', class: 'flexible flex-column' do %>
+  <h5>Form with method GET</h5>
+
+  <p>
+    The data-disable-with does not work
+  </p>
+  <%= form_for @user, url: '/home/form_get_submission', method: :get do |f| %>
+    <%= f.button 'Submit this form', class: 'btn btn-primary', data: { disable_with: spinner } %>
+  <% end %>
+<% end %>
+<br><br>
+<%= turbo_frame_tag 'form-frame', class: 'flexible flex-column' do %>
+  <h5>Form with method POST</h5>
+
+  <p>
+    Same same but with POST
+  </p>
+  <%= form_for @user, url: '/home/form_get_submission', method: :post do |f| %>
+    <%= f.button 'Submit this form', class: 'btn btn-primary', data: { disable_with: spinner } %>
+  <% end %>
+<% end %>

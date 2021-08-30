@@ -41,6 +41,17 @@ class HomeController < ApplicationController
     render partial: "form_frame"
   end
 
+  def issues
+    @user = User.new
+  end
+
+  def form_get_submission
+    # save stuff...
+    sleep 2
+    @user = User.new
+    render 'issues'
+  end
+
   def inline_form_submission
     # save stuff...
     sleep 1
