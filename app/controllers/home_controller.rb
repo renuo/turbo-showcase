@@ -49,7 +49,7 @@ class HomeController < ApplicationController
     # save stuff...
     sleep 2
     @user = User.new
-    render 'issues'
+    render "issues"
   end
 
   def inline_form_submission

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
 <head>
   <title>Turbo Showcase</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,11 +13,13 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
-<body>
-<div class="container">
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+<div class="container ">
   <%= yield %>
 </div>
-<div class="footer py-3">
+</main>
+<div class="footer mt-auto py-3">
   <div class="container">
   This showcase has been realised by <a href="https://github.com/coorasse">Alessandro Rodi</a> and offered to you by
   <a href="https://renuo.ch">Renuo AG</a>.
