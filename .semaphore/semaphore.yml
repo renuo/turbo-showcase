@@ -25,7 +25,7 @@ blocks:
       jobs:
         - name: tests
           commands:
-            - echo "do nothing today"
+            - bin/check
 promotions:
   - name: main
     pipeline_file: main-deploy.yml

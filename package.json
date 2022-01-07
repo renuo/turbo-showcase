@@ -3,12 +3,12 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
-    "@hotwired/turbo-rails": "^7.0.1",
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.2.1",
-    "stimulus": "^2.0.0"
+    "@hotwired/turbo-rails": "^7.1.0",
+    "@rails/actioncable": "^7.0.0",
+    "@rails/activestorage": "^7.0.0",
+    "@rails/ujs": "^7.0.0",
+    "@rails/webpacker": "^5.4.3",
+    "stimulus": "^3.0.1"
   },
   "version": "0.1.0",
   "devDependencies": {
