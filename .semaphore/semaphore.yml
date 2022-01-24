@@ -25,6 +25,9 @@ blocks:
       jobs:
         - name: tests
           commands:
+            - bundle config set deployment 'true'
+            - bundle config set path 'vendor/bundle'
+            - bundle install -j 4
             - bin/check
 promotions:
   - name: main
