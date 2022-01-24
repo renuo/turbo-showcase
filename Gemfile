@@ -4,12 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read(File.join(__dir__, ".ruby-version"))
 
 gem "rails"
+gem "bootstrap"
 gem "pg"
 gem "puma"
+gem "importmap-rails"
 gem "sass-rails"
 gem "standardrb"
-gem "webpacker"
-gem "view_component", require: "view_component/engine"
+gem "view_component"
 gem "kaminari"
 gem "bootstrap4-kaminari-views"
 gem "turbo-rails"
@@ -17,6 +18,7 @@ gem "method_source"
 gem "stimulus-rails"
 gem "redis"
 gem "bootsnap", require: false
+gem "font-awesome-sass"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

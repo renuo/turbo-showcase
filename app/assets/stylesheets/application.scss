@@ -14,6 +14,11 @@
  *= require_self
  */
 
+@import "bootstrap";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 $renuo-green: #27d79d;
 
 .renuo-green {
@@ -127,6 +132,7 @@ button {
 
 body {
   font-size: 18px !important;
+  min-height: 100%;
 }
 
 main {
