@@ -13,6 +13,7 @@ gem "view_component", require: "view_component/engine"
 gem "kaminari"
 gem "bootstrap4-kaminari-views"
 gem "turbo-rails"
+gem "method_source"
 gem "stimulus-rails"
 gem "redis"
 gem "bootsnap", require: false

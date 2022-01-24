@@ -1,0 +1,51 @@
+
+<h1> <i class="fas fa-route renuo-green"></i> Navigation</h1>
+<p>
+  Let's start by learning basic turbo frame navigation.
+  Please refer to the <a href="https://turbo.hotwire.dev/handbook/frames" target="_blank">Turbo Handbook</a> for more information.
+</p>
+<p>
+  Knowing how to navigate with Turbo frames is the first step to building a Turbo application.
+</p>
+
+<h2 class="mt-5">Basic frame navigation</h2>
+
+<%= turbo_frame_tag 'update-me', class: 'flexible flex-column' do %>
+  <a href="/home/replace_update_me" class="btn btn-primary m-3">
+    Replace only the content of this turbo-frame
+  </a>
+  <a href="/home/replace_whole_page" class="btn btn-primary m-3" data-turbo-frame="_top">
+    Reload the whole page with `data-turbo-frame: '_top'`
+  </a>
+  <a href="/home/replace_whole_page" class="btn btn-primary m-3" target="_top">
+    Reload the whole page with `target: '_top'`
+  </a>
+
+  <%= turbo_frame_tag 'target-top', target: '_top', class: 'flexible m-3' do %>
+    <a href="/home/replace_whole_page" class="btn btn-primary m-3">
+      Reload the whole page when the nearest wrapping turbo-frame has `target: '_top'`
+    </a>
+  <% end %>
+<% end %>
+
+<h2 class="mt-5">External frame navigation</h2>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= turbo_frame_tag 'update-external', class: 'flexible flex-column' do %>
+      <p>
+        You can also replace the content of another frame
+      </p>
+
+      <a href="/home/replace_external_frame" class="btn btn-primary m-3" data-turbo-frame="external-frame">
+        Reload the content of `external-frame`
+      </a>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <%= turbo_frame_tag 'external-frame', class: 'flexible flex-column' do %>
+      Hi 👋. I am called external-frame because my content gets replaced by some other frames.
+      Somewhere there's a button that is able to replace my content. Look for it.
+    <% end %>
+  </div>
+</div>

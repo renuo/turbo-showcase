@@ -1,0 +1,31 @@
+<h1><i class="fas fa-water renuo-green"></i> Streams</h1>
+<p>It's time to look at our first turbo-stream example.</p>
+<p>
+  We will use the
+  <a href="https://github.com/hotwired/turbo-rails/blob/6ba6e005990682a61d82067dc141afdc98bd6c22/app/channels/turbo/streams_channel.rb" target="_blank">Turbo::StreamsChannel</a>
+  API to show how this works rather than
+  the
+  <a href="https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb" target="_blank">Turbo::Broadcastable</a>
+  concern which adds a further layer of complexity to the whole story.
+</p>
+
+<%= turbo_stream_from 'stream-id' %>
+<%= turbo_frame_tag 'stream-title', class: 'flexible align-items-center justify-content-center' do %>
+  I have some content
+<% end %>
+
+<p>
+  The link below, will update the content above by using an ActionCable stream.
+</p>
+<p>
+  Check the implementation in the #refresh_stream_title action.
+</p>
+<p>
+  If you open multiple tabs, you will see that the content is replaced in all the tabs.
+</p>
+<p>
+  🤫 If the number is changing, it means that someone else is refreshing it right now.
+</p>
+
+<%= link_to 'Click me', '/home/refresh_stream_title', remote: true, class: 'btn btn-primary' %>
+

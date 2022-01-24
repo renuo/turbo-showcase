@@ -1,9 +1,9 @@
 module ApplicationHelper
   def spinner
-    '<i class="fas fa-spinner fa-spin"></i>'.html_safe
+    raw_spinner.html_safe
   end
 
   def raw_spinner
-    '<i class="fas fa-spinner fa-spin"></i>'
+    '<span class="show-when-disabled"><i class="fas fa-spinner fa-spin"></i></span>'
   end
 end

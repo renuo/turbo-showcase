@@ -277,6 +277,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   kaminari
   listen (~> 3.3)
+  method_source
   pg
   puma
   rails

@@ -1,0 +1,26 @@
+<h1><i class="fas fa-copy renuo-green"></i> Pagination</h1>
+
+<%= turbo_frame_tag 'pagination-frame', data: { controller: 'url-updating-frame' }, class: 'flexible flex-column' do %>
+  <p>
+    I am a special frame: when my content is replaced, <strong>also the URL of the page is updated</strong>.
+  </p>
+  <p>
+    This is not the default behaviour so, in order to do that, I need a
+    <a href="https://github.com/renuo/turbo-showcase/blob/main/app/javascript/controllers/url_updating_frame_controller.js" target="_blank">stimulus
+      controller</a>
+    attached.
+  </p>
+  <p>
+    This is particularly useful when paginating content, because now you can
+    <a href="/home/navigate_away" target="_top">navigate away</a> and come back,
+    and keep the pagination.
+  </p>
+  <table class="table table-striped">
+    <% @elements.each do |el| %>
+      <tr>
+        <td><%= el %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= paginate @elements, theme: 'twitter-bootstrap-4', window: 2 %>
+<% end %>

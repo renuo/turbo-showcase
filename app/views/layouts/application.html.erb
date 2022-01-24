@@ -10,19 +10,80 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
-<main class="flex-shrink-0">
-<div class="container ">
-  <%= yield %>
-</div>
+<main class="d-flex flex-shrink-0">
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <span class="fs-4">
+      <i class="fas fa-rocket renuo-green me-2"></i>
+      Turbo Showcase
+    </span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="<%=root_path %>" class="nav-link link-dark <%=class_names(active: current_page?(root_path)) %>">
+          <i class="fas fa-fw fa-home renuo-green"></i>
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<%=frames_path %>" class="nav-link link-dark <%=class_names(active: current_page?(frames_path)) %>">
+          <i class="fas fa-fw fa-route renuo-green"></i>
+          Navigation
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<%=slow_path %>" class="nav-link link-dark <%=class_names(active: current_page?(slow_path)) %>">
+          <i class="fas fa-fw fa-clock renuo-green"></i>
+          Slow frame
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<%=pagination_path %>" class="nav-link link-dark <%=class_names(active: current_page?(pagination_path)) %>">
+          <i class="fas fa-fw fa-copy renuo-green"></i>
+          Pagination
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<%=forms_path %>" class="nav-link link-dark <%=class_names(active: current_page?(forms_path)) %>">
+          <i class="fas fa-fw fa-keyboard renuo-green"></i>
+          Forms
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<%=inline_fields_path %>" class="nav-link link-dark <%=class_names(active: current_page?(inline_fields_path)) %>">
+          <i class="fas fa-fw fa-barcode renuo-green"></i>
+          Inline fields
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<%=streams_path %>" class="nav-link link-dark <%=class_names(active: current_page?(streams_path)) %>">
+          <i class="fas fa-fw fa-water renuo-green"></i>
+          Streams
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a href="<%=training_path %>" class="nav-link  link-dark <%=class_names(active: current_page?(training_path)) %>">
+          <i class="fas fa-fw fa-dumbbell renuo-green"></i>
+          Training
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+  <div class="container mb-5 mt-5">
+    <%= yield %>
+  </div>
 </main>
+
 <div class="footer mt-auto py-3">
   <div class="container">
-  This showcase has been realised by <a href="https://github.com/coorasse">Alessandro Rodi</a> and offered to you by
-  <a href="https://renuo.ch">Renuo AG</a>.
+    This showcase has been realised by <a href="https://github.com/coorasse">Alessandro Rodi</a> and offered to you by
+    <a href="https://renuo.ch">Renuo AG</a>.
   </div>
 </div>
 </body>

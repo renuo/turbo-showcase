@@ -14,8 +14,5 @@ import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
 
-// this is what allows us to use the data-disable-with attribute in a turbo form
-import '../src/rails_ujs_turbo_polyfill';
-
 Rails.start()
-ActiveStorage.start()
+// ActiveStorage.start()

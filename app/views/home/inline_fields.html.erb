@@ -1,0 +1,12 @@
+<h1><i class="fas fa-barcode renuo-green"></i> Inline fields</h1>
+<p>
+  This is one of the first components we realised with Turbo + Stimulus.
+  Here we provide to you a very minimized version of it, working only with text fields.
+  Of course, we use a <a href="https://github.com/github/view_component">ViewComponent</a> for that. ❤️
+</p>
+<dl>
+  <dt> <%= User.human_attribute_name(:first_name) %></dt>
+  <dd> <%= render EditableFieldComponent.new(model: @user, attribute: :first_name) %></dd>
+  <dt> <%= User.human_attribute_name(:last_name) %></dt>
+  <dd> <%= render EditableFieldComponent.new(model: @user, attribute: :last_name) %></dd>
+</dl>
