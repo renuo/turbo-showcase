@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus';
+import { Controller } from "@hotwired/stimulus"
 import { Turbo } from '@hotwired/turbo-rails';
 
 // this controller allows to update the URL even if only a frame content changed.
