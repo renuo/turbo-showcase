@@ -27,5 +27,5 @@
   🤫 If the number is changing, it means that someone else is refreshing it right now.
 </p>
 
-<%= link_to 'Click me', '/home/refresh_stream_title', remote: true, class: 'btn btn-primary' %>
+<%= button_to 'Click me', '/home/refresh_stream_title', remote: true, method: :post, class: 'btn btn-primary' %>
 
