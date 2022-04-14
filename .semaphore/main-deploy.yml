@@ -9,17 +9,14 @@ blocks:
   - name: main-deploy
     task:
       secrets:
+        - name: heroku-http
         - name: heroku-deploy
       env_vars:
-        - name: HEROKU_REMOTE
-          value: https://git.heroku.com/turbo-showcase.git
+        - name: HEROKU_APP_NAME
+          value: turbo-showcase
       jobs:
         - name: main-deploy
           commands:
             - checkout --use-cache
-            - ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
-            - chmod 600 ~/.ssh/id_rsa_semaphore_heroku
-            - ssh-add ~/.ssh/id_rsa_semaphore_heroku
-            - git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
-            - git remote add heroku $HEROKU_REMOTE
+            - heroku git:remote -a $HEROKU_APP_NAME
             - git push heroku -f $SEMAPHORE_GIT_BRANCH:main
