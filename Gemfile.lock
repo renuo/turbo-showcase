@@ -99,8 +99,6 @@ GEM
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
-    font-awesome-sass (6.4.0)
-      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -302,7 +300,6 @@ DEPENDENCIES
   bootstrap4-kaminari-views
   byebug
   capybara (>= 3.26)
-  font-awesome-sass
   importmap-rails
   kaminari
   listen (~> 3.3)
