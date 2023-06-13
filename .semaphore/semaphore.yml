@@ -1,5 +1,5 @@
 version: "v1.0"
-name: mtextur
+name: turbo-showcase
 agent:
   machine:
     type: e1-standard-2
@@ -13,7 +13,7 @@ blocks:
       minutes: 10
     task:
       secrets:
-        - name: mtextur
+        - name: turbo-showcase
       env_vars:
         - name: DATABASE_URL
           value: 'postgresql://postgres@localhost/test?encoding=utf8'
