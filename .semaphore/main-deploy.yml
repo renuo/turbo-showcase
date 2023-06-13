@@ -10,7 +10,6 @@ blocks:
     task:
       secrets:
         - name: heroku-http
-        - name: heroku-deploy
       env_vars:
         - name: HEROKU_APP_NAME
           value: turbo-showcase
