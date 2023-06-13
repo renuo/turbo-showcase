@@ -42,8 +42,8 @@ class HomeController < ApplicationController
 
   def refresh_stream_title
     Turbo::StreamsChannel.broadcast_action_to("stream-id", action: :update,
-                                                           target: "stream-title",
-                                                           content: "Here is a random number: #{rand(1..100)}")
+      target: "stream-title",
+      content: "Here is a random number: #{rand(1..100)}")
   end
 
   # here we save some content and then redirect back to the root page
