@@ -1,8 +1,16 @@
 <h1><i class="fas fa-water renuo-green"></i> Streams</h1>
+
+<div class="alert alert-warning">
+  <i class="fas fa-exclamation-triangle"></i>
+  <strong>Warning!</strong>
+  Turbo Streams do not work with the ActionCable async adapter.
+  Make sure you are using the Redis adapter by editing your cable.yml file.
+</div>
+
 <p>It's time to look at our first turbo-stream example.</p>
 <p>
   We will use the
-  <a href="https://github.com/hotwired/turbo-rails/blob/6ba6e005990682a61d82067dc141afdc98bd6c22/app/channels/turbo/streams_channel.rb" target="_blank">Turbo::StreamsChannel</a>
+  <a href="https://github.com/hotwired/turbo-rails/blob/main/app/channels/turbo/streams_channel.rb" target="_blank">Turbo::StreamsChannel</a>
   API to show how this works rather than
   the
   <a href="https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb" target="_blank">Turbo::Broadcastable</a>
@@ -18,7 +26,9 @@
   The link below, will update the content above by using an ActionCable stream.
 </p>
 <p>
-  Check the implementation in the #refresh_stream_title action.
+  Check the implementation in the
+  <a href="https://github.com/renuo/turbo-showcase/blob/main/app/controllers/home_controller.rb#L43">#refresh_stream_title</a> action
+  and <a href="https://github.com/renuo/turbo-showcase/blob/main/app/views/home/streams.html.erb#L12">the streams HTML page</a>.
 </p>
 <p>
   If you open multiple tabs, you will see that the content is replaced in all the tabs.
