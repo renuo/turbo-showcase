@@ -51,6 +51,7 @@ class HomeController < ApplicationController
     # save stuff...
     sleep 0.5
     @user = User.new(first_name: params[:user][:first_name], last_name: params[:user][:last_name])
+    Turbo::StreamsChannel.broadcast_append_to("users", target: "stream-list", html: "<li>#{params[:user][:first_name]} #{params[:user][:last_name]}</li>")
     render "forms"
   end
 
