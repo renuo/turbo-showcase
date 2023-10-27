@@ -18,6 +18,7 @@ gem "method_source"
 gem "stimulus-rails"
 gem "redis"
 gem "bootsnap", require: false
+gem "appsignal"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
