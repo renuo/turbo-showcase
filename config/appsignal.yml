@@ -8,6 +8,7 @@ default: &defaults
     - HTTP_CONNECTION
     - HTTP_REFERER
     - HTTP_USER_AGENT
+    - HTTP_AUTHORIZATION
     - CONTENT_LENGTH
     - PATH_INFO
     - HTTP_RANGE
