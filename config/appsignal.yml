@@ -1,4 +1,4 @@
-default: &defaults
+default: &default
   request_headers:
     - HTTP_ACCEPT
     - HTTP_ACCEPT_CHARSET
@@ -17,3 +17,6 @@ default: &defaults
     - SERVER_NAME
     - SERVER_PORT
     - SERVER_PROTOCOL
+
+main:
+  <<: *default
