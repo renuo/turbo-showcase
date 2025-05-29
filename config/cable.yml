@@ -1,13 +1,30 @@
+# Async adapter only works within the same process, so for manually triggering cable updates from a console,
+# and seeing results in the browser, you must do so from the web console (running inside the dev process),
+# not a terminal started via bin/rails console! Add "console" to any action or any ERB template view
+# to make the web console appear.
 development:
-  adapter: redis
-  url: redis://localhost:6379/1
+  adapter: solid_cable
+  connects_to:
+    database:
+      writing: cable
+  polling_interval: 0.1.seconds
+  silence_polling: true
+  message_retention: 1.day
 
 test:
-  adapter: test
+  adapter: solid_cable
+  connects_to:
+    database:
+      writing: cable
+  polling_interval: 0.1.seconds
+  silence_polling: true
+  message_retention: 1.day
 
 production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: turbo_showcase_production
-  ssl_params:
-    verify_mode: <%= OpenSSL::SSL::VERIFY_NONE %>
+  adapter: solid_cable
+  connects_to:
+    database:
+      writing: cable
+  polling_interval: 0.1.seconds
+  silence_polling: true
+  message_retention: 1.day
