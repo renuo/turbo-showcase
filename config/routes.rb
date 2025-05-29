@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/home/:action", to: "home#:action"
 
   get "/training", to: "training#show"
+  get "/training/instructions", to: "training#instructions"
   get "/letters/:letter", to: "letters#show"
   get "/letters/:letter/slow", to: "letters#slow"
   get ":action", to: "home#:action"

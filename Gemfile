@@ -3,22 +3,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read(File.join(__dir__, ".ruby-version"))
 
-gem "rails"
-gem "bootstrap"
-gem "pg"
+gem "rails", "~> 7.1.0"
+gem "sqlite3"
+gem "solid_cable"
+
 gem "puma"
-gem "importmap-rails"
-gem "sass-rails"
-gem "standardrb"
+
+gem "bootstrap"
+gem "dartsass-sprockets"
 gem "view_component"
 gem "kaminari"
 gem "bootstrap4-kaminari-views"
+gem "importmap-rails"
 gem "turbo-rails"
-gem "method_source"
 gem "stimulus-rails"
-gem "redis"
+
+gem "method_source"
+
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 gem "bootsnap", require: false
-gem "appsignal"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -36,4 +40,7 @@ group :test do
   gem "webdrivers"
 end
 
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem "appsignal"
+end
+

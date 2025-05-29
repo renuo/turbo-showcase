@@ -1,0 +1,156 @@
+<h1> Hello 👋, welcome to Turbo Training <i class="fas fa-dumbbell renuo-green"></i></h1>
+<p>
+  This is a <a href="https://turbo.hotwire.dev" target="_blank">Turbo</a> Training page.
+  Each section will contain an exercise to solve using Turbo. It will progress in difficulty.
+</p>
+<p>
+  The <a href="/">Homepage of the showcase</a> already provides you the solutions to most of these exercises.
+  Don't look at them if you want to learn something...
+</p>
+<p>
+  Start by cloning this repository and run it locally. <a href="https://github.com/renuo/turbo-showcase" target="_blank">Find the instructions on GitHub</a>
+</p>
+<p>
+  All <code>turbo-frame</code> tags have an ugly dotted border so you can always see them.
+</p>
+<p>
+  Have fun and don't forget to give it a ⭐️
+</p>
+
+<a class="github-button" href="https://github.com/renuo/turbo-showcase" data-size="large" data-show-count="true" aria-label="Star renuo/turbo-showcase on GitHub">Star</a>
+
+<div class="mb-3"></div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>1. Frame 'update-me'</h5>
+      </div>
+      <div class="card-body">
+        <code>
+          In this exercise you need to implement a simple link that refreshes only the content of the
+          frame in which is contained. The link displayes a page with a simple message "I got replaced.".
+        </code>
+        <video controls width="100%">
+          <source src="/videos/exercise1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>2. Frame 'update-me' and back</h5>
+      </div>
+      <div class="card-body">
+        <code>
+          This exercise extends the previous one and gives the possibility to "go back".
+          Once the frame is replaced, next to the "I got replaced message", there's a link that allows to go back,
+          and see the video again.
+        </code>
+        <video controls width="100%">
+          <source src="/videos/exercise2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>3. The external frame</h5>
+      </div>
+      <div class="card-body">
+        <code>
+          Implement a button that replaces the content of the frame on the right
+        </code>
+        <video controls width="100%">
+          <source src="/videos/exercise3.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>Replace me</h5>
+      </div>
+      <div class="card-body">
+        <turbo-frame id="replace_me_3">
+          Do something to replace my content
+        </turbo-frame>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>4. Pagination</h5>
+      </div>
+      <div class="card-body">
+        <code>
+          Quite boring right? Let's implement something useful. There are some @elements available in this page.
+          This exercise consists in paginating them and also allow to click on them. When clicked they of course
+          "escape the frame" and open on a new page.<br>
+          You can paginate the array with:<br>
+          @elements = Kaminari.paginate_array(@elements).page(params[:page]).per(5)<br>
+          in the controller and use<br>
+          paginate @elements, theme: 'twitter-bootstrap-4', window: 2<br>
+          in the view.
+        </code>
+        <table class="table table-striped">
+          <% @elements.each do |el| %>
+            <tr>
+              <td><a href="/letters/<%=el %>"><%= el %></a></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>5. Forms</h5>
+      </div>
+      <div class="card-body">
+        <code>
+          In this exercise you need to replace the name displayed, after submitting the form, without refreshing.
+        </code>
+        <video controls width="100%">
+          <source src="/videos/exercise5.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>6. Frames eager and lazy loading</h5>
+      </div>
+      <div class="card-body">
+        <code>
+          There's a frame here. Make it load the page /letters/a/slow both with eager and lazy loading.
+          Bonus point if you display a loading indicator.<br>
+          Bonus point if you actually display the content of the page... ;)
+        </code>
+        <turbo-frame id="to-be-defined"/>
+      </div>
+    </div>
+  </div>
+</div>
