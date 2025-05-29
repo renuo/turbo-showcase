@@ -19,5 +19,4 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_29_140704) do
     t.index ["channel"], name: "index_solid_cable_messages_on_channel"
     t.index ["created_at"], name: "index_solid_cable_messages_on_created_at"
   end
-
 end

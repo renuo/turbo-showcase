@@ -3,7 +3,7 @@
   Loading frame content asynchronously. You can do so by setting the `src` property of the turbo-frame tag.
   This frame will take 5 seconds to load.
 </p>
-<%= turbo_frame_tag 'slow-frame', src: '/home/slow_frame', class: 'flexible flex-column fixed-height' do %>
+<%= turbo_frame_tag 'slow-frame', src: '/slow_frame', class: 'flexible flex-column fixed-height' do %>
 
   <div class="text-center"><i class="fas fa-spinner fa-spin fa-3x"></i></div>
 <% end %>

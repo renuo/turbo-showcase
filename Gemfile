@@ -43,4 +43,3 @@ end
 group :production do
   gem "appsignal"
 end
-

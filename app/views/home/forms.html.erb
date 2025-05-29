@@ -6,7 +6,7 @@
     Check the controller implementation.
     <strong><%= @user.first_name %> <%= @user.last_name %></strong>
   </p>
-  <%= form_for @user, url: '/home/form_submission', remote: true do |f| %>
+  <%= form_for @user, url: '/form_submission', remote: true do |f| %>
     <div class="mb-3">
       <%= f.text_field :first_name, placeholder: 'First name', class: 'form-control' %>
     </div>

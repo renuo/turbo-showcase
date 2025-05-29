@@ -8,7 +8,7 @@
         <i class="fas fa-edit ms-2 edit-icon"></i>
       </div>
       <div class="editable-container editable-inline" data-target="editable-field.writeContainer" style="display:none">
-        <%= form_for @model, url: '/home/inline_form_submission', data: { target: 'editable-field.form' }, html: { class: 'd-inline' } do |f| %>
+        <%= form_for @model, url: '/inline_form_submission', data: { target: 'editable-field.form' }, html: { class: 'd-inline' } do |f| %>
           <div class="form-group d-inline">
             <div class="editable-input" style="position: relative;">
               <%= f.text_field @attribute, data: { target: 'editable-field.input' }, class: 'form-control form-control-sm' %>

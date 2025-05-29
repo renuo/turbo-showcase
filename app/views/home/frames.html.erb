@@ -11,7 +11,7 @@
 <h2 class="mt-5">Basic frame navigation</h2>
 
 <%= turbo_frame_tag 'update-me', class: 'flexible flex-column' do %>
-  <a href="/home/replace_update_me" class="btn btn-primary m-3">
+  <a href="/replace_update_me" class="btn btn-primary m-3">
     Replace only the content of this turbo-frame
   </a>
   <a href="/home/replace_whole_page" class="btn btn-primary m-3" data-turbo-frame="_top">
@@ -37,7 +37,7 @@
         You can also replace the content of another frame
       </p>
 
-      <a href="/home/replace_external_frame" class="btn btn-primary m-3" data-turbo-frame="external-frame">
+      <a href="/replace_external_frame" class="btn btn-primary m-3" data-turbo-frame="external-frame">
         Reload the content of `external-frame`
       </a>
     <% end %>

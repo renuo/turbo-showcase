@@ -5,6 +5,5 @@ class TrainingController < ApplicationController
   end
 
   def show
-
   end
 end
