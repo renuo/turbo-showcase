@@ -1,36 +1,22 @@
-version: "v1.0"
-name: turbo-showcase
+version: v1.0
+name: main-deploy
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
-auto_cancel:
-  running:
-    when: 'true'
+    type: e2-standard-2
+    os_image: ubuntu2204
+
 blocks:
-  - name: tests
-    execution_time_limit:
-      minutes: 10
+  - name: main-deploy
     task:
       secrets:
         - name: turbo-showcase
       env_vars:
-        - name: DATABASE_URL
-          value: 'postgresql://postgres@localhost/test?encoding=utf8'
-        - name: RAILS_ENV
-          value: test
-      prologue:
-        commands:
-          - checkout --use-cache
+        - name: DOKKU_APP_NAME
+          value: turbo-showcase
       jobs:
-        - name: tests
+        - name: main-deploy
           commands:
-            - bundle config set deployment 'true'
-            - bundle config set path 'vendor/bundle'
-            - bundle install -j 4
-            - bin/check
-promotions:
-  - name: main
-    pipeline_file: main-deploy.yml
-    auto_promote:
-      when: "result = 'passed' and branch = 'main'"
+            - checkout --use-cache
+            - git remote add dokku ssh://dokku@$DOKKU_SERVER_IP:22/$DOKKU_APP_NAME
+            - chmod 600 /home/semaphore/.ssh/hetzner-github.key
+            - GIT_SSH_COMMAND="ssh -i /home/semaphore/.ssh/hetzner-github.key -o StrictHostKeyChecking=no" git push dokku -f $SEMAPHORE_GIT_BRANCH:main
