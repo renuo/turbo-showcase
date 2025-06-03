@@ -10,6 +10,7 @@ blocks:
     task:
       secrets:
         - name: turbo-showcase
+        - name: hetzner
       env_vars:
         - name: DOKKU_APP_NAME
           value: turbo-showcase
