@@ -1,6 +1,6 @@
 # Turbo Showcase
 
-This project contains the source code of https://turbo-showcase.herokuapp.com.
+This project contains the source code of https://turbo-showcase.renuoapp.ch.
 
 Here you can look how stuff has been implemented and copy-paste it in your project.
 
