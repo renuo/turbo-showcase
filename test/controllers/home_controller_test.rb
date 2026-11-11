@@ -138,7 +138,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "turbo-cable-stream-source", count: 1
     assert_select "turbo-frame#stream-title", /I have some content/
-    assert_select "form[action='/refresh_stream_title'] [type=submit][value='Click me']"
+    assert_select "form[action='/refresh_stream_title'] button[type=submit]", "Click me"
   end
 
   test "broadcasts a random number to the stream title" do
