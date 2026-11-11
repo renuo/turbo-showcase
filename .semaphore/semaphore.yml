@@ -1,23 +1,45 @@
 version: v1.0
-name: main-deploy
+name: turbo-showcase
 agent:
   machine:
     type: e2-standard-2
     os_image: ubuntu2204
+auto_cancel:
+  running:
+    when: "branch != 'main'"
 
 blocks:
-  - name: main-deploy
+  - name: tests
+    execution_time_limit:
+      minutes: 15
     task:
-      secrets:
-        - name: turbo-showcase
-        - name: hetzner
       env_vars:
-        - name: DOKKU_APP_NAME
-          value: turbo-showcase
+        - name: RAILS_ENV
+          value: test
+        - name: CI
+          value: "true"
+      prologue:
+        commands:
+          - checkout --use-cache
+          - sem-version ruby $(cat .ruby-version)
+          - cache restore
+          - bundle config set deployment 'true'
+          - bundle config set path 'vendor/bundle'
+          - bundle install -j 4
+          - cache store
+          - bin/rails db:prepare
       jobs:
-        - name: main-deploy
+        - name: tests
           commands:
-            - checkout --use-cache
-            - git remote add dokku ssh://dokku@$DOKKU_SERVER_IP:22/$DOKKU_APP_NAME
-            - chmod 600 /home/semaphore/.ssh/hetzner-github.key
-            - GIT_SSH_COMMAND="ssh -i /home/semaphore/.ssh/hetzner-github.key -o StrictHostKeyChecking=no" git push dokku -f $SEMAPHORE_GIT_BRANCH:main
+            - bin/check
+      epilogue:
+        on_fail:
+          commands:
+            - artifact push job tmp/screenshots --force || true
+            - artifact push job log/test.log --force || true
+
+promotions:
+  - name: main-deploy
+    pipeline_file: main-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'main'"

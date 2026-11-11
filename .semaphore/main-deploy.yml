@@ -2,20 +2,22 @@ version: v1.0
 name: main-deploy
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
+    type: e2-standard-2
+    os_image: ubuntu2204
 
 blocks:
   - name: main-deploy
     task:
       secrets:
-        - name: heroku-http
+        - name: turbo-showcase
+        - name: hetzner
       env_vars:
-        - name: HEROKU_APP_NAME
+        - name: DOKKU_APP_NAME
           value: turbo-showcase
       jobs:
         - name: main-deploy
           commands:
             - checkout --use-cache
-            - heroku git:remote -a $HEROKU_APP_NAME
-            - git push heroku -f $SEMAPHORE_GIT_BRANCH:main
+            - git remote add dokku ssh://dokku@$DOKKU_SERVER_IP:22/$DOKKU_APP_NAME
+            - chmod 600 /home/semaphore/.ssh/hetzner-github.key
+            - GIT_SSH_COMMAND="ssh -i /home/semaphore/.ssh/hetzner-github.key -o StrictHostKeyChecking=no" git push dokku -f $SEMAPHORE_GIT_BRANCH:main
