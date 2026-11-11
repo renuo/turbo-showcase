@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read(File.join(__dir__, ".ruby-version"))
 
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 7.2.0"
 gem "sqlite3"
 gem "solid_cable"
 
@@ -35,7 +35,6 @@ group :development do
 end
 
 group :test do
-  gem "minitest", "< 6" # Rails 7.1 is incompatible with minitest 6
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
 end
