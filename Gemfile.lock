@@ -177,9 +177,7 @@ GEM
     matrix (0.4.2)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    minitest (6.1.0)
-      drb (~> 2.0)
-      prism (>= 1.5, < 3)
+    minitest (5.27.0)
     msgpack (1.8.7)
     mutex_m (0.3.0)
     net-imap (0.6.8)
@@ -376,6 +374,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.3)
   method_source
+  minitest (< 6)
   puma
   rails (~> 7.1.0)
   selenium-webdriver
