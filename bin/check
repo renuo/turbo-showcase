@@ -1,3 +1,5 @@
 #!/bin/sh
+set -e
 
 bundle exec standardrb
+bin/rails test:all
