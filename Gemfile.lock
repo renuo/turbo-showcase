@@ -117,7 +117,7 @@ GEM
       tilt
     date (3.4.1)
     drb (2.2.3)
-    erb (5.0.1)
+    erb (6.0.7)
     erubi (1.13.1)
     ffi (1.17.2-arm64-darwin)
     ffi (1.17.2-x86_64-darwin)
