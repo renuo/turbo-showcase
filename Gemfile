@@ -35,6 +35,7 @@ group :development do
 end
 
 group :test do
+  gem "minitest", "< 6" # Rails 7.1 is incompatible with minitest 6
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
 end
