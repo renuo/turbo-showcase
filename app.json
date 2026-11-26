@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dokku": {
+      "predeploy": "bin/rails db:prepare"
+    }
+  }
+}
